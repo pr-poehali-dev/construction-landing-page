@@ -56,8 +56,15 @@ const projects = [
 ];
 
 const PortfolioSection = () => {
+  const handleProjectClick = (title: string) => {
+    const projectId = title.toLowerCase().includes("коттедж")
+      ? "modern-cottage"
+      : "business-center";
+    window.location.href = `/project/${projectId}`;
+  };
+
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-white" id="portfolio">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -72,7 +79,8 @@ const PortfolioSection = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleProjectClick(project.title)}
             >
               <div className="relative">
                 <img

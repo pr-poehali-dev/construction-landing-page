@@ -21,6 +21,11 @@ const HeroSection = () => {
           <Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg"
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <Icon name="Phone" className="mr-2" />
             Получить консультацию
@@ -29,6 +34,7 @@ const HeroSection = () => {
             variant="outline"
             size="lg"
             className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg"
+            onClick={() => (window.location.href = "/calculator")}
           >
             <Icon name="Calculator" className="mr-2" />
             Рассчитать стоимость
